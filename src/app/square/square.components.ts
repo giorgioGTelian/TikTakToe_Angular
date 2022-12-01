@@ -1,22 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import {Component, OnInit } from '@angular/core';
+import {Component } from '@angular/core';
 
 @Component( {
   selector: 'app-square',
   template: `
   <p>
-    square works!
+   {{ rando }}
     </p>
     `,
     styles:[]
 })
-export class SquareComponent implements OnInit {
+export class SquareComponent{
 
-  constructor() {}
-
-  ngOnInit() {
-    
-  }
+  rando = Math.random();
 }
