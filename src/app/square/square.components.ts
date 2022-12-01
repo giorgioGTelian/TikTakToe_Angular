@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Input, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import {Component } from '@angular/core';
@@ -7,17 +7,17 @@ import {Component } from '@angular/core';
   selector: 'app-square',
   template: `
   <p>
-   {{ rando }}
+   <button>{{ value }}</button>
     </p>
     `,
     styles:[]
 })
 export class SquareComponent{
 
+@Input() value: 'X' | 'O';
+ // rando = Math.random();
 
-  rando = Math.random();
-
-  constructor() {
-    setInterval(() => this.rando = Math.random(), 500);
-  }
+ // constructor() {
+  //  setInterval(() => this.rando = Math.random(), 500);
+  //}
 }
