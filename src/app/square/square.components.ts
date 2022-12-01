@@ -5,11 +5,11 @@ import {Component, OnInit } from '@angular/core';
 
 @Component( {
   selector: 'app-square',
-  template: 
+  template: `
   <p>
     square works!
     </p>
-    ,
+    `,
     styles:[]
 })
 export class SquareComponent implements OnInit {
