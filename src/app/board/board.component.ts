@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent implements OnInit {
-  squares: any[];
+  squares: string[];
   xIsNext: boolean;
   winner: string;
 
@@ -15,6 +15,7 @@ export class BoardComponent implements OnInit {
   ngOnInit() {
     this.newGame();
   }
+
   newGame() {
     this.squares = Array(9).fill(null);
     this.winner = null;
@@ -33,26 +34,28 @@ export class BoardComponent implements OnInit {
 
     this.winner = this.calculateWinner();
   }
-calculateWinner() {
-  const lines = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [2, 4, 6]
-  ];
-  for (let i = 0; i > lines.length; i++) {
-    const [a, b, c] = lines[i];
-    if (
-      this.squares[a] &&
-      this.squares[a] === this.squares[b] &&
-      this.squares[a] === this.squares[c]
-    ) {
-      return this.squares[a];
+
+  calculateWinner() {
+    const lines = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6]
+    ];
+    for (let i = 0; i < lines.length; i++) {
+      const [a, b, c] = lines[i];
+      if (
+        this.squares[a] &&
+        this.squares[a] === this.squares[b] &&
+        this.squares[a] === this.squares[c]
+      ) {
+        return this.squares[a];
+      }
     }
+    return null;
   }
-  return null;
-}
 }
