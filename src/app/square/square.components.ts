@@ -1,23 +1,16 @@
-import { Input, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import {Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-@Component( {
+@Component({
   selector: 'app-square',
   template: `
-  <p>
-   <button>{{ value }}</button>
-    </p>
-    `,
-    styles:[]
+    <button nbButton *ngIf="!value">{{ value }}</button>
+    <button nbButton hero status="success" *ngIf="value == 'X'">{{ value }}</button>
+    <button nbButton hero status="info" *ngIf="value == 'O'">{{ value }}</button>
+  `,
+  styles: ['button { width: 100%; height: 100%; font-size: 5em !important; }']
 })
-export class SquareComponent{
+export class SquareComponent  {
 
-@Input() value: 'X' | 'O';
- // rando = Math.random();
+  @Input() value: 'X' | 'O';
 
- // constructor() {
-  //  setInterval(() => this.rando = Math.random(), 500);
-  //}
 }
